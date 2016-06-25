@@ -11,10 +11,23 @@ has
   - name
 has_many
   - sites
+    address
 has_many through sites
   - contacts
-  have a
     name
     number
   - assets
-  
+    IP
+
+There will be a form for client to modify their information or add new info
+
+There will be a dashboard that will show top attacks
+
+<!-- Starting the development -->
+
+I looked at older sinatra labs to get an idea of what exactly I needed for the initial set up.
+
+- created environment
+- 
+
+
