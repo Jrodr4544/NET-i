@@ -28,6 +28,8 @@ There will be a dashboard that will show top attacks
 I looked at older sinatra labs to get an idea of what exactly I needed for the initial set up.
 
 - created environment
-- 
+- and created first migration
+
+After this I realized why not add the bootstrap to the app so I can start off with the template
 
 
