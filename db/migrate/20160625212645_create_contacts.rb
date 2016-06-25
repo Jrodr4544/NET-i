@@ -3,7 +3,7 @@ class CreateContacts < ActiveRecord::Migration
     create_table :contacts do |t|
       t.string      :name
       t.string      :number
-      t.belongs_to  :client
+      t.belongs_to  :site
     end
   end
 end
