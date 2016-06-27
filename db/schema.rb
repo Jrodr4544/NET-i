@@ -11,14 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160625213352) do
+ActiveRecord::Schema.define(version: 20160626223807) do
 
   create_table "assets", force: :cascade do |t|
     t.string  "IP"
     t.integer "site_id"
   end
 
-  create_table "clients", force: :cascade do |t|
+  create_table "companies", force: :cascade do |t|
     t.string "name"
   end
 
@@ -30,7 +30,16 @@ ActiveRecord::Schema.define(version: 20160625213352) do
 
   create_table "sites", force: :cascade do |t|
     t.text    "address"
-    t.integer "client_id"
+    t.integer "company_id"
   end
+
+  create_table "users", force: :cascade do |t|
+    t.string  "username"
+    t.string  "email"
+    t.string  "password"
+    t.integer "company_id"
+  end
+
+  add_index "users", ["company_id"], name: "index_users_on_company_id"
 
 end

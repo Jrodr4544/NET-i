@@ -12,6 +12,8 @@ gem 'pry'
 gem 'tux'
 gem 'slugify'
 gem 'bcrypt'
+gem 'authlane'
+
 
 group :test do
   gem 'rspec'
