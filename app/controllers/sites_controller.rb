@@ -11,16 +11,20 @@ class SitesController < ApplicationController
     @site.contacts  <<  Contact.create(params[:site][:contact])
 
     if @site.save
-      redirect 'sites/index'
+      redirect to '/sites'
     else
-      redirect 'sites/new'
+      redirect to 'sites/new'
     end
   end
 
   get '/sites/index' do
-    # show sites that only belong to user's
-    # company
-    erb :'sites/index', :layout => :navigation
+    if current_user
+      company = Company.find(current_user.company_id)
+      @sites = company.sites
+      erb :'sites/index', :layout => :navigation
+    else
+      redirect to 'sites/new'
+    end
   end
 
   get '/sites/:id' do

@@ -16,7 +16,7 @@
   <br>
   <label>Choose your company</label>
     <% Company.all.each do |company| %>
-        <input type="checkbox" name="company[site_ids][]" value="<%=company.id%>" id="<%=company.id%>"><%=company.name%></input>
+        <input type="checkbox" name="company[company_id][]" value="<%=company.id%>" id="<%=company.id%>"><%=company.name%></input>
     <% end %>
   <br>
   <br>

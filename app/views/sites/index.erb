@@ -2,12 +2,14 @@
      for a company. As well as links to
      add new company users and view dashboards
      with show action. -->
+<% if @site %>
+  <h1><%= @site.company.name %></h1>
 
-<h1><%= @site.company.name %></h1>
-
-<br>
-<br>
-<% @site.company.sites.each do |site| %>
-  <!-- add link to this site -->
-  <p><%=  site.address %>
-<% end %>
+  <br>
+  <br>
+  <% @site.company.sites.each do |site| %>
+    <!-- add link to this site -->
+    <p><%=  site.address %>
+  <% end %>
+<% else%>
+  
