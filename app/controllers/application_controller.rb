@@ -27,7 +27,7 @@ class ApplicationController < Sinatra::Base
   get '/' do 
     # @companies = Company.all
 
-    erb :'companies/index'
+    erb :'companies/index', :layout => :navigation
   end
 
   # get '/user' do

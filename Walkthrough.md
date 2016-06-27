@@ -32,6 +32,6 @@ I looked at older sinatra labs to get an idea of what exactly I needed for the i
 
 After this I realized why not add the bootstrap to the app so I can start off with the template. I could use this template as a layout for my other pages
 
-I created a task list in order to tackle them one by one and I started noticing other things I would need. For instance I wanted there to be user access to the application so I looked for a way to add roles to users for sinatra. After some research, I found several gems I could use and Warden was one of them. However, I had a difficult time figuring out how to implement Warden so I was lucky enough to find "authlane"
+I created a task list in order to tackle them one by one and I started noticing other things I would need. For instance I wanted there to be user access to the application so I looked for a way to add roles to users for sinatra. After some research, I found several gems I could use and Warden was one of them. However, I had a difficult time figuring out how to implement Warden so I was lucky enough to find "authlane".
 
 

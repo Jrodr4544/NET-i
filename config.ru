@@ -11,4 +11,7 @@ end
 use Rack::MethodOverride
 # ADD OTHER CONTROLLERS HERE
 use CompaniesController
+use UsersController
+use AssetsController
+use SitesController
 run ApplicationController

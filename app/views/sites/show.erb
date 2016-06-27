@@ -1,3 +1,14 @@
 <!-- displays the site's details and link to  
      company's show action which displays 
      dashboard -->
+
+    <h1 class="sub-header">Site Information</h1>
+
+    <label>Site:    <%= @site.address %></label>
+    <br>
+    <label>Contact: <%= @site.contact %></label>
+    <br>
+    <label>Assets:</label>
+    <% @site.assets.each do |asset| %>
+     <label><%= asset.ip %></label>
+    <% end %>
