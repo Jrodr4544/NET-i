@@ -10,4 +10,5 @@ end
 
 use Rack::MethodOverride
 # ADD OTHER CONTROLLERS HERE
+use CompaniesController
 run ApplicationController

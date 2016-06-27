@@ -1,0 +1,22 @@
+<h1>Sign Up</h1>
+
+<form action="/users" method="POST">
+  <label for="username">Username:</label>
+  <input type="text" name="username" id="username">
+  <br>
+  <br>
+  <label for="email">Email:</label>
+  <input type="text" name="email" id="email">
+  <br>
+  <br>
+  <label for="password">Password:</label>
+  <input type="text" name="password" id="password">
+  <br>
+  <br>
+  <label>Choose your company</label>
+    <% Company.all.each do |company| %>
+        <input type="checkbox" name="company[site_ids][]" value="<%=company.id%>" id="<%=company.id%>"><%=company.name%></input>
+    <% end %>
+  <br>
+  <br>
+</form>
