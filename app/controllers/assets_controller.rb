@@ -5,6 +5,11 @@ class AssetsController < ApplicationController
   end
 
   post '/assets' do
-    @asset
+    # @asset
+  end
+
+  get '/assets/:id' do
+    @asset = Asset.find(params[:id])
+    erb :'assets/show', :layout => :navigation
   end
 end

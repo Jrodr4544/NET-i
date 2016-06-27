@@ -5,9 +5,10 @@ class SitesController < ApplicationController
   end
 
   post '/sites' do
-    @site           = User.new
-    @site.address   = params[:address]
-    @site.contact   = Contact.new(params[:contact_name],params[:contact_number])
+    # binding.pry
+    @site           =   Site.new
+    @site.address   =   params[:site][:address]
+    @site.contacts  <<  Contact.create(params[:site][:contact])
 
     if @site.save
       redirect 'sites/index'
@@ -16,10 +17,10 @@ class SitesController < ApplicationController
     end
   end
 
-  get '/sites' do
+  get '/sites/index' do
     # show sites that only belong to user's
     # company
-
+    erb :'sites/index', :layout => :navigation
   end
 
   get '/sites/:id' do

@@ -1,0 +1,10 @@
+<h1 class="sub-header">Edit Asset:</h1>
+
+<form action="/assets/<%= @asset.id %>" method="POST">
+      
+      <label for="asset_ip">Site Asset IP:</label>
+      <input type="text" name="company[site][asset][ip]" id="asset_ip">
+      <br>
+      <br>
+      <input type="Submit">
+</form>

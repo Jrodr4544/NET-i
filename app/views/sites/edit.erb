@@ -1,2 +1,19 @@
-<!-- If company admin is current user
+<!-- If company user
      then edit action is available -->
+<h1 class="sub-header">Modify your site's details below</h1>
+<form action="/sites/<%= @site.id %>" method="POST">
+    <br>
+    <label for="site_address">Site Address:</label>
+    <textarea type="text" rows="1" cols="80" name="company[site][address]" id="site_address"/></textarea>
+    <br>
+    <br>
+    <label for="contact_name">Site Contact:</label>
+    <input type="text" name="company[site][contact][name]" id="contact_name">
+    <br>
+    <br>
+    <label for="contact_number">Contact Number:</label>
+    <input type="text" name="company[site][contact][number]" id="contact_number">
+    <br>
+    <br>
+    <input type="Submit" />
+</form>

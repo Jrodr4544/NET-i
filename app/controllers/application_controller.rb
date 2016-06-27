@@ -10,24 +10,28 @@ class ApplicationController < Sinatra::Base
   # although this did not work when linking html bootstrap theme
   # to css in /public. Also using configure to customize authlane settings
   configure do
-    set :views,         "app/views"
-    set :public_folder, 'public'
-    
-    set :authlane,  :failed_route     =>  '/login',
-                    :session_key      =>  :authlane,
-                    :remember_cookie  =>  :authlane_token,
-                    :serialize_user   =>  [:username] # can also specify a user model here
+    set     :views,         "app/views"
+    set     :public_folder, 'public'
+    enable  :sessions
+    set     :session_secret, 'secret_password'
+    # set :authlane,  :failed_route     =>  '/login',
+    #                 :session_key      =>  :authlane,
+    #                 :remember_cookie  =>  :authlane_token,
+    #                 :serialize_user   =>  [:username] # can also specify a user model here
   end
 
-  Sinatra::AuthLane.create_role_strategy do |roles|
+  # Sinatra::AuthLane.create_role_strategy do |roles|
 
 
-  end
+  # end
 
   get '/' do 
     # @companies = Company.all
-
-    erb :'companies/index', :layout => :navigation
+    if logged_in?
+      erb :'companies/index', :layout => :navigation
+    else
+      redirect to '/login'
+    end
   end
 
   # get '/user' do
@@ -35,22 +39,22 @@ class ApplicationController < Sinatra::Base
   # end
 
   helpers do
-    # def logged_in?
-    #   !!current_user
-    # end
+    def logged_in?
+      !!session[:email]
+    end
 
-    # def current_user
-    #   @current_user ||= User.find_by(email: session[:email]) if session[:email]
-    # end
+    def current_user
+      @current_user ||= User.find_by(email: session[:email]) if session[:email]
+    end
 
-    # def login(email, password)
-    #   user = User.find_by(:email => email)
-    #   if user && user.authenticate(password)
-    #     session[:email] = user.email
-    #   else
-    #     redirect '/login'
-    #   end
-    # end
+    def login(email, password)
+      user = User.find_by(:email => email)
+      if user && user.authenticate(password)
+        session[:email] = user.email
+      else
+        redirect '/login'
+      end
+    end
 
     # def logout!
     #   session.clear

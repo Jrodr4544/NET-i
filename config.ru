@@ -14,4 +14,5 @@ use CompaniesController
 use UsersController
 use AssetsController
 use SitesController
+use SessionsController
 run ApplicationController

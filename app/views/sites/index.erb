@@ -2,3 +2,12 @@
      for a company. As well as links to
      add new company users and view dashboards
      with show action. -->
+
+<h1><%= @site.company.name %></h1>
+
+<br>
+<br>
+<% @site.company.sites.each do |site| %>
+  <!-- add link to this site -->
+  <p><%=  site.address %>
+<% end %>
