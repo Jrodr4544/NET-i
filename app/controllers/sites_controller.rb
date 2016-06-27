@@ -11,17 +11,21 @@ class SitesController < ApplicationController
     @site.contacts  <<  Contact.create(params[:site][:contact])
 
     if @site.save
-      redirect to '/sites'
+      redirect to 'sites/all'
     else
       redirect to 'sites/new'
     end
   end
 
-  get '/sites/index' do
+  get '/sites/all' do
     if current_user
       company = Company.find(current_user.company_id)
-      @sites = company.sites
-      erb :'sites/index', :layout => :navigation
+      @sites  = company.sites
+      if @sites.empty?
+        redirect to 'sites/new'
+      else
+        erb :'sites/index', :layout => :navigation
+      end
     else
       redirect to 'sites/new'
     end
