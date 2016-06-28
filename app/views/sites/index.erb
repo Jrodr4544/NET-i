@@ -2,11 +2,13 @@
      for a company. As well as links to
      add new company users and view dashboards
      with show action. -->
-  <h1 class="sub-header"><%= @company.name %></h1>
+  <h1 class="sub-header" align="center"><%= @company.name %></h1>
 
   <br>
   <br>
+<h3 align="center">
   <% @sites.each do |site| %>
     <!-- add link to this site -->
-    <p><%=  site.address %>
+    <a href="/sites/<%= site.id %>"><%=  site.address %></a>
   <% end %>
+</h3>

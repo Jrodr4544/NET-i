@@ -20,7 +20,7 @@ class CompaniesController < ApplicationController
 
   post '/companies' do
     if current_user && logged_in?
-      @company = Company.create(name: params[:name])
+      @company = Company.create(name: params[:company][:name])
       redirect to "/companies/#{@company.id}"
     else
       redirect to '/login'

@@ -1,10 +1,19 @@
-<h1 class="sub-header">Edit Asset:</h1>
+<h1 class="sub-header">Edit Asset: <%= @asset.IP %></h1>
 
-<form action="/assets/<%= @asset.id %>" method="POST">
-      
-      <label for="asset_ip">Site Asset IP:</label>
-      <input type="text" name="company[site][asset][ip]" id="asset_ip">
-      <br>
-      <br>
-      <input type="Submit">
-</form>
+<div class="well">
+  <form action="/assets/<%= @asset.id %>" method="POST">
+        
+        <label for="asset_ip">Site Asset IP:</label>
+        <input type="text" name="company[site][asset][ip]" id="asset_ip">
+        <br>
+        <br>
+        <input type="Submit">
+  </form>
+
+
+  <form method="POST" action="/assets/<%= @asset.id %>/delete">
+  <input id="hidden" type="hidden" name="_method" value="Delete Asset">
+  <br><br>
+  <button type="submit" name="Delete Asset" value="Delete Asset">Delete Asset</button>
+  </form>
+</div>

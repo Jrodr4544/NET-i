@@ -2,17 +2,20 @@
      company's show action which displays 
      dashboard -->
 
-    <h1 class="sub-header">Site Information</h1>
+    <h1 class="sub-header" align="center">Site Information</h1>
 
-    <label>Site:    <%= @site.address %></label>
-    <br>
-    <label>Contact(s):</label>
-    <% @site.contacts.each do |contact| %>
-      <%= contact.name    %>
-      <%= contact.number  %>
-    <% end %>
-    <br>
-    <label>Assets:</label>
-    <% @site.assets.each do |asset| %>
-     <label><%= asset.ip %></label>
-    <% end %>
+    <div align="center">
+      <label>Site:    <%= @site.address %></label>
+      <br>
+      <label>Contact(s):</label>
+      <% @site.contacts.each do |contact| %>
+        <li>Name: <%= contact.name    %></li>
+        <li>Number: <%= contact.number  %></li>
+      <% end %>
+      <br>
+      <label >Assets:</label>
+      <% @site.assets.each do |asset| %>
+       <p><a href="/assets/<%= asset.id %>"><%= asset.IP %></p>
+       <p><a href="/assets/<%= asset.id %>/edit">Edit</a></p> 
+      <% end %>
+    </div>

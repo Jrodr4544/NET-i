@@ -20,8 +20,7 @@ class UsersController < ApplicationController
     end
   end
 
-  get 'users/:id' do
-    # binding.pry
+  get '/users/:id' do
     if logged_in?
       @user = current_user
       erb :'users/show', :layout => :navigation
