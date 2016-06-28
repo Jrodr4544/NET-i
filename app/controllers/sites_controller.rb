@@ -39,10 +39,12 @@ class SitesController < ApplicationController
   end
 
   get '/sites/:id' do
-    # if logged in
+    if logged_in?
       @site     = Site.find(params[:id])
       erb :'sites/show', :layout => :navigation
-
+    else
+      redirect to '/login'
+    end
   end  
 
 end

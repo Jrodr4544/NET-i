@@ -33,7 +33,7 @@ class AssetsController < ApplicationController
 
   post '/assets/:id/delete' do
     @asset = Asset.find_by(params[:id])
-    if logged_in && current_user
+    if logged_in? && current_user
       @asset.destroy
       redirect to '/sites/all'
     else

@@ -14,24 +14,12 @@ class ApplicationController < Sinatra::Base
     set     :public_folder, 'public'
     enable  :sessions
     set     :session_secret, 'secret_password'
-    # set :authlane,  :failed_route     =>  '/login',
-    #                 :session_key      =>  :authlane,
-    #                 :remember_cookie  =>  :authlane_token,
-    #                 :serialize_user   =>  [:username] # can also specify a user model here
   end
-
-  # Sinatra::AuthLane.create_role_strategy do |roles|
-
-
-  # end
 
   get '/' do 
     erb :welcome
   end
 
-  # get '/user' do
-  #   protect! #dunno what this does yet
-  # end
 
   helpers do
     def logged_in?
