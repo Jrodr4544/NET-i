@@ -1,13 +1,18 @@
 class SitesController < ApplicationController
 
   get '/sites/new' do
-    erb :'sites/new', :layout => :navigation
+    if logged_in?
+      erb :'sites/new', :layout => :create
+    else
+      redirect to '/login'
+    end
   end
 
   post '/sites' do
     # binding.pry
     @site           =   Site.new
     @site.address   =   params[:site][:address]
+    @site.company   =   Company.find(current_user.company_id)
     @site.contacts  <<  Contact.create(params[:site][:contact])
 
     if @site.save
@@ -19,8 +24,10 @@ class SitesController < ApplicationController
 
   get '/sites/all' do
     if current_user
-      company = Company.find(current_user.company_id)
-      @sites  = company.sites
+      # binding.pry
+      @company  = Company.find(current_user.company_id)
+      @sites    = @company.sites
+      
       if @sites.empty?
         redirect to 'sites/new'
       else

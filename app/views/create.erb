@@ -62,24 +62,8 @@
       </div>
     </nav>
 
-    <div class="container-fluid">
-      <div class="row">
-        
-        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-          
-        <h6>Welcome to this awesome sinatra</h6>
 
-          <h1 class="sub-header">Login</h1>
-
-<form action="/sessions" method="POST">
-  <p>
-  <label for="email">Email:</label>
-  <input type="text" name="email" id="email">
-  </p>
-  <label for="password">Password:</label>
-  <input type="password" name="password" id="password">
-  <input type="submit">
-</form>
+          <%= yield %>
 
           
           
@@ -98,6 +82,5 @@
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 <!--     // <script src="../../public/js/ie10-viewport-bug-workaround.js"></script> -->
   
-
 
 </body></html>

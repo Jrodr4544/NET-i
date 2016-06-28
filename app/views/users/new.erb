@@ -1,24 +1,26 @@
 <h1 class="sub-header">Sign Up</h1>
 
-<form action="/users" method="POST">
-  <br>
-  <label for="username">Username:</label>
-  <input type="text" name="username" id="username">
-  <br>
-  <br>
-  <label for="email">Email:</label>
-  <input type="text" name="email" id="email">
-  <br>
-  <br>
-  <label for="password">Password:</label>
-  <input type="text" name="password" id="password">
-  <br>
-  <br>
-  <label>Choose your company</label>
-    <% Company.all.each do |company| %>
-        <input type="checkbox" name="company[company_id][]" value="<%=company.id%>" id="<%=company.id%>"><%=company.name%></input>
-    <% end %>
-  <br>
-  <br>
-  <input type="Submit">
-</form>
+<div class="well">
+  <form action="/users" method="POST">
+    <br>
+    <label for="username">Username:</label>
+    <input type="text" name="username" id="username">
+    <br>
+    <br>
+    <label for="email">Email:</label>
+    <input type="text" name="email" id="email">
+    <br>
+    <br>
+    <label for="password">Password:</label>
+    <input type="text" name="password" id="password">
+    <br>
+    <br>
+    <label>Choose your company</label>
+      <% Company.all.each do |company| %>
+          <input type="checkbox" name="company[company_id][]" value="<%=company.id%>" id="<%=company.id%>"><%=company.name%></input>
+      <% end %>
+    <br>
+    <br>
+    <input type="Submit">
+  </form>
+</div>

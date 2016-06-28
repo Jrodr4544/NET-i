@@ -11,24 +11,28 @@ class CompaniesController < ApplicationController
   end
 
   get '/companies/new' do
-    # if !logged_in?
-    #   redirect "/login"
-    # else
-      erb :'companies/new', :layout => :navigation
-    # end
+    if logged_in?
+      erb :'companies/new', :layout => :create
+    else
+      redirect "/login"
+    end
   end
 
   post '/companies' do
-    # if current_user && logged_in?
-    #   @company = Company.create(name: params[:name])
-    #   redirect to "/companies/#{@company.id}"
-    # else
-    #   redirect to '/login'
-    # end
+    if current_user && logged_in?
+      @company = Company.create(name: params[:name])
+      redirect to "/companies/#{@company.id}"
+    else
+      redirect to '/login'
+    end
   end
 
   get '/companies/:id' do
-    # if logged_in?
-    #   @company = Company.find
+    if logged_in? && current_user
+      @company = Company.find(current_user.company_id)
+      erb :'companies/show', :layout => :navigation
+    else
+      redirect to '/login'
+    end
   end
 end

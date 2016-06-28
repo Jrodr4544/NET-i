@@ -26,12 +26,7 @@ class ApplicationController < Sinatra::Base
   # end
 
   get '/' do 
-    # @companies = Company.all
-    if logged_in?
-      erb :'companies/index', :layout => :navigation
-    else
-      redirect to '/login'
-    end
+    erb :welcome
   end
 
   # get '/user' do
@@ -56,9 +51,13 @@ class ApplicationController < Sinatra::Base
       end
     end
 
-    # def logout!
-    #   session.clear
-    # end
+    def logout!
+      session.clear
+    end
+
+    def admin?
+      # current_user.admin
+    end
 
   end
 end
