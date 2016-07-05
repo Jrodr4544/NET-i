@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
-  has_one :company
+  belongs_to :company
   has_secure_password
+
 end

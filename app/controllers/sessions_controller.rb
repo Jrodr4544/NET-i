@@ -5,7 +5,9 @@ class SessionsController < ApplicationController
   end
 
   post '/sessions' do
+    # binding.pry
     login(params[:email], params[:password])
+    # User.login
     redirect 'sites/all'
   end
 
