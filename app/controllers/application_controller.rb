@@ -1,10 +1,7 @@
 require 'sinatra'
-require 'sinatra/authlane'
 
 class ApplicationController < Sinatra::Base
-  # Using Sinatra extension format to be able to use AuthLane
-  register  Sinatra::AuthLane
-  helpers   Sinatra::Cookies   
+  # helpers   Sinatra::Cookies   
 
   # setting my views folder and setting the public folder
   # although this did not work when linking html bootstrap theme
@@ -43,9 +40,9 @@ class ApplicationController < Sinatra::Base
       session.clear
     end
 
-    def admin?
+    # def admin?
       # current_user.admin
-    end
+    # end
 
   end
 end

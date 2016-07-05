@@ -5,7 +5,6 @@ class AssetsController < ApplicationController
   end
 
   post '/assets' do
-    # @asset
     if current_user && logged_in?
       @site         = Site.find_by(company_id: current_user.company_id)
       @asset        = Asset.create(IP: params[:company][:site][:asset][:ip])
