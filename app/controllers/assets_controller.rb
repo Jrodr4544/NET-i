@@ -1,14 +1,14 @@
 class AssetsController < ApplicationController
 
   get '/assets/new' do
+    @sites = current_user.company.sites
     erb :'assets/new', :layout => :create
   end
 
   post '/assets' do
     if current_user && logged_in?
-      @site         = Site.find_by(company_id: current_user.company_id)
-      @asset        = Asset.create(IP: params[:company][:site][:asset][:ip])
-      @site.assets << @asset
+      @site         = Site.find_by(id: params[:company][:site][:site_id])
+      @asset        = @site.assets.create(IP: params[:company][:site][:asset][:ip])
 
       redirect to "/sites/all"
     else
