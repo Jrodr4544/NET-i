@@ -11,14 +11,15 @@ by running:
 
 bundle install
 
-After installing the gems start a local server using rails or your preference, but in order to comply with the api keys bind it to localhost:3000 which rails does by default.
+After installing the gems, start a local server using rails or your preference but in order to comply with the settings for the api keys bind it to localhost:3000 which rails does by default.
 
 rails server -b localhost
-
-# For assessment
-
-This might only be able to run locally since the api keys in place are 'exclusive'. Might only be available from IP addresses I provided to APIs (specifically google maps)
 
 # Contributing
 
 Feel free to pull request or report any bugs on github at http://www.github.com/jrodr4544/NET-i . Please also check out the code of conduct at http://contributor-covenant.org/ , this project is welcome to any collaborations under the specifications in the covenant.
+
+
+# Notes
+
+This might only be able to run locally since the api keys in place are 'exclusive'. This means that it may only be available from the IP addresses provided to the APIs (specifically google maps)
