@@ -1,5 +1,6 @@
 class Company < ActiveRecord::Base
   has_many    :sites
   has_many    :users
-  has_many    :users, :source => 'admin' # make sure this association works
+  # Below not in use
+  # has_many    :users, :source => 'admin' 
 end
