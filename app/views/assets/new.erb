@@ -6,6 +6,13 @@
         <label for="asset_ip">Site Asset IP:</label>
         <input type="text" name="company[site][asset][ip]" id="asset_ip">
         <br>
+        <label for="site">Select Site</label>
+        <select name="company[site][site_id]" id="site_id">
+          <% @sites.each do |site| %>
+              <option value="<%= site.id %>" ><%=site.address%></option>
+          <% end %>
+        </select>
+
         <br>
         <input type="Submit">
   </form>
